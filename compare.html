@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--<link rel="stylesheet" href="d3_style.css">-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+<link rel="stylesheet" href="d3_style.css">
+
+<body class="container with-3d-shadow with-transitions">
+  <h3>Line Graph with Multiple JSON Datasets</h3>
+  <div class="row">
+    <svg id="chart1" style="height:500px;width:500px;"></svg>
+  </div>
+
+  <h3>Input new dataset files and reload</h3>
+  <form>
+    <input type="text" class="dataset_filename">
+    <input type="text" class="dataset_filename">
+    <input type="text" class="dataset_filename">
+    <input type="text" class="dataset_filename">
+    <input type="text" class="dataset_filename">
+
+    <select id="info_type">
+      <option value="ate">ATE</option>
+      <option value="rpe">RPE</option>
+    </select>
+  </form>
+  <button id="reload_button" class="btn btn-default">Reload Chart</button>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+<script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="create_chart_types.js"></script>
+<script>
+  function reload_line_graph() {
+    // Read all the filenames from the input fields
+    filenames = [];
+    $(".dataset_filename").each(function() {
+      filename = $(this).val();
+      if (filename != "") filenames.push(filename);
+    });
+    info_type = $("#info_type").val();
+    load_line_graph("#chart1", info_type, filenames);
+  }
+
+  $(document).ready(function() {
+    $("#reload_button").click(function() {
+      reload_line_graph();
+    });
+
+    load_line_graph("#chart1", "ate", ["datafile_1.json", "datafile_2.json", "datafile_3.json", "datafile_4.json"]);
+  });
+</script>

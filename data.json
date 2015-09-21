@@ -1,0 +1,74 @@
+{
+  "performance":[
+    {
+      "key": "Stage Performance",
+      "color": "#4f99b4",
+      "values": [
+        { 
+          "label" : "unpacker" ,
+          "value" : 25.307646510375
+        } , 
+        { 
+          "label" : "rgbdtools" ,
+          "value" : 16.756779544553
+        } , 
+        { 
+          "label" : "level_world" ,
+          "value" : 18.451534877007
+        } , 
+        { 
+          "label" : "phototexturing" ,
+          "value" : 18.6142352811805
+        } , 
+        {
+          "label" : "freiburg_metrics" ,
+          "value" : 27.8082472075876
+        }
+      ]
+    }
+  ],
+  "box":[ 
+    {
+      "label": "ATE",
+      "values": { 
+        "Q1": 120,
+        "Q2": 150,
+        "Q3": 200,
+        "whisker_low": 115,
+        "whisker_high": 210,
+        "outliers": [50, 100, 225]
+      }
+    },
+    {
+      "label": "RPE",
+      "values": { 
+        "Q1": 300,
+        "Q2": 350,
+        "Q3": 400,
+        "whisker_low": 225,
+        "whisker_high": 425,
+        "outliers": [175]          
+      }
+    }
+  ],
+  "reconstruction_completeness":[
+    {
+      "key": "Reconstructed Frames",
+      "y": 97.4 
+    },
+    {
+      "key": "Dropped Frames",
+      "y": 2.6
+    }
+  ],
+  "tracking_percent":[
+    {
+      "key": "Tracked Frames",
+      "y": 91.3 
+    },
+    {
+      "key": "Dropped Frames",
+      "y": 8.7 
+    }
+  ]
+}

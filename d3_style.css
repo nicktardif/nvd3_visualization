@@ -1,0 +1,28 @@
+text {
+    font: 12px sans-serif;
+}
+svg {
+    display: block;
+    float: left;
+}
+#chart3 {
+    height: 350px !important;
+    width: 350px !important;
+}
+
+#chart4 {
+    height: 350px !important;
+    width: 350px !important;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.nvd3.nv-pie.nv-chart-donut .nv-pie-title {
+    opacity: 0.4;
+    fill: rgba(224, 116, 76, 0.91);
+}

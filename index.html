@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--<link rel="stylesheet" href="d3_style.css">-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+<link rel="stylesheet" href="d3_style.css">
+
+<body class="container with-3d-shadow with-transitions">
+  <div class="col-xs-6">
+    <div class="row">
+      <h3>Performance Metrics</h3>
+      <svg id="chart1" style="height:300px;width:500px;"></svg>
+    </div>
+
+    <div class="row">
+      <h3>Groundtruth Comparison Metrics</h3>
+      <svg id="chart2" style="height:300;width:500px;"></svg>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="row">
+      <h3>Reconstruction Completeness</h3>
+      <svg id="chart3" class="mypiechart"></svg>
+    </div>
+  
+    <div class="row">
+      <h3>Tracking Percent</h3>
+      <svg id="chart4" class="mypiechart"></svg>
+    </div>
+  </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>
+<script src="create_chart_types.js"></script>
+<script>
+  d3.json('data.json', function(error, data) {
+    if (error) throw error;
+    create_horizontal_bar_chart(data["performance"], "#chart1");
+    create_box_and_whiskers_plot(data["box"], "#chart2");
+    create_donut_chart(data["reconstruction_completeness"], "#chart3");
+    create_donut_chart(data["tracking_percent"], "#chart4");
+  });
+</script>
